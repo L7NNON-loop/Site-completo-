@@ -126,3 +126,12 @@ npm run build
 ```
 
 > Dica: este repositório usa `.gitattributes` com `LF` para reduzir conflitos por quebra de linha.
+
+### Atalho para sincronizar com `main`
+Use o script abaixo para reduzir erro manual de conflito:
+
+```bash
+./scripts/sync-main.sh
+```
+
+Ele faz `fetch`, `rebase origin/main`, verifica marcadores de conflito e lembra os checks finais.
