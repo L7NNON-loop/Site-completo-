@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Sem marcadores de conflito
+        run: npm run check:conflicts
+      - name: Quality gate (lint, typecheck, test, build)
+        run: npm run lint && npm run typecheck && npm run test && npm run build
