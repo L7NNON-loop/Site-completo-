@@ -119,6 +119,7 @@ git merge origin/main
 Antes de abrir PR, rode:
 
 ```bash
+npm run check:conflicts
 npm run lint
 npm run typecheck
 npm run test

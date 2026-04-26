@@ -14,5 +14,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Sem marcadores de conflito
+        run: npm run check:conflicts
       - name: Quality gate (lint, typecheck, test, build)
         run: npm run lint && npm run typecheck && npm run test && npm run build
