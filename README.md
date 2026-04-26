@@ -95,3 +95,34 @@ Workflow em `.github/workflows/ci.yml` com:
 - lint
 - unit tests
 - build
+
+## Atualizar branch sem conflitos (GitHub)
+Quando a branch estiver desatualizada ou com conflito:
+
+```bash
+git checkout sua-branch
+git fetch origin
+git rebase origin/main
+# resolva conflitos nos arquivos, depois:
+git add .
+git rebase --continue
+```
+
+Se preferir merge:
+
+```bash
+git checkout sua-branch
+git fetch origin
+git merge origin/main
+```
+
+Antes de abrir PR, rode:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+> Dica: este repositório usa `.gitattributes` com `LF` para reduzir conflitos por quebra de linha.
